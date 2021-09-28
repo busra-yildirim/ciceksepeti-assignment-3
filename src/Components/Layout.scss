@@ -1,0 +1,14 @@
+.container {
+    width: 950px;
+    height: 90vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;    
+    color:  #a77950;
+    flex-wrap: wrap;
+    border-bottom-width: 1px;
+    
+    &.title {
+        border-bottom: 2px solid black;
+    }
+}
