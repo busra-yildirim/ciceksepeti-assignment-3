@@ -1,13 +1,20 @@
 .card-wrapper {
     display: flex;
     flex-direction: column;
-    margin: 60px 30px;
     width: 250px;
-    height: 300px;
+    height: 370px;
     background-color: #fff;
     justify-content: space-between;
     border-radius: 5px;
     position: relative;
+    &__header {
+        height: 200px;
+    }
+    &__cover {
+        object-fit: cover;
+        height: 200px;
+        width: 250px;
+    }
     img {
         border-radius:  5px 5px 0px 0px;
     }
@@ -29,22 +36,36 @@
         background-color: #f8f8f8;
         border: 1px solid gray;
         padding: 2px;
-
     }
     .star {
         display: flex;
         width: 20px;
-        position: absolute;
-        top: 140px;
-        left: 10px;
     }
-    .card-content {
-        width: 200px;
-        height: 120px;
-        margin: 0px auto;
-        border-radius: 10px;
-        background-color: #f8f8f8;
-        box-shadow: 0px 0px 5px #f8f8f8;
+
+    &__body {
+        height: 100%;
+        padding: 10px;
+        .star-wrapper {
+            display: flex;
+            padding: 0 10px;
+            justify-content: center;
+            align-items: center;
+            gap: 5px;
+            margin-bottom: 10px;
+        }
+        .card-content {
+            
+            .title {
+                font-size: 15px;
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+            .desc {
+                font-size: 12px;
+                font-weight: 100;
+            }
+
+        }
     }
 }
 
