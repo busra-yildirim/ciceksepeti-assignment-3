@@ -5,8 +5,9 @@ import deleteIcon from "../assets/delete-icon.png";
 import editIcon from "../assets/edit-icon.png";
 
 
-function Card({recipe: {id, title, description, image, starCount}, deleteCard,  openModal, updateStarCount}){
+function Card({recipe, deleteCard,  openModal, updateStarCount}){
 
+    const {id, title, description, image, starCount } = recipe;
 
     return( 
         <>     
@@ -14,7 +15,7 @@ function Card({recipe: {id, title, description, image, starCount}, deleteCard,  
                 <div className="card-wrapper__header">
                     <img className="card-wrapper__cover"src={image} alt="cover"/>
                     <img className="delete-icon" src={deleteIcon} alt="delete" onClick={()=> deleteCard(id)} />
-                    <img className="edit-icon" src={editIcon} alt="edit" onClick={()=> openModal(id)}/>
+                    <img className="edit-icon" src={editIcon} alt="edit" onClick={()=> openModal(recipe)}/>
                 </div>
                 <div className="card-wrapper__body">
                         <div className="star-wrapper">

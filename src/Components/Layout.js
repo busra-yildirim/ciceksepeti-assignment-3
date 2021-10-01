@@ -7,9 +7,11 @@ import Modal from './Modal';
 function Layout() {
 
     const [ allRecipes, setAllRecipes] = useState([]);  // All card object array
-    const [ showPopup, setShowPopup ] = useState(false);  // is modal open or close?
+    const [ showPopup, setShowPopup ] = useState(false);  // is modal open or close? 
     const [ isOpen, setIsOpen] = useState(false);
-    const [ recipeID, setRecipeID ] = useState(-1);
+    const [ selectedRecipe, setSelectedRecipe ] = useState({});
+    const [ notifyText, setNotifyText] = useState("");
+
     // fetch api
     const getRecipes = async () => {
         try {
@@ -20,7 +22,6 @@ function Layout() {
             console.log(error);
         }
     }  
-
     useEffect(() => {
         getRecipes();        
     }, []);
@@ -29,6 +30,7 @@ function Layout() {
     const deleteCard = (id) => {
         const filteredRecipe = allRecipes.filter((recipe)=> recipe.id !== id)
         setAllRecipes(filteredRecipe);
+        setNotifyText("Delete Successfully")
         setShowPopup(true);
     }
     // show notify during 3 second
@@ -52,30 +54,42 @@ function Layout() {
         setAllRecipes(newAllRecipes); 
     }
     // modal is open
-    const openModal = (id) => {      
+    const openModal = (recipe) => {      
           setIsOpen(true) 
-          console.log(recipeID)
-          setRecipeID(id);
+          setSelectedRecipe(recipe);
     }
-   
+    
     // modal is close 
     const closeModal = () =>{
         setIsOpen(false)
         
     }
 
-    
+    const updateRecipe = (updatedRecipe) => {
+        const newAllRecipes = allRecipes.map(item => {
+                if(item.id === selectedRecipe.id){
+                    item.title = updatedRecipe.title;
+                    item.description = updatedRecipe.description;
+                }
+                return item;
+        })
+        setAllRecipes(newAllRecipes);    
+        setIsOpen(false);
+        setNotifyText("Update Successfully")
+        setShowPopup(true);
+    }
     return(
         <div className="container">   
             {allRecipes.map((recipe)=>(
                 <Card key={recipe.id} recipe={recipe} openModal={openModal} deleteCard={deleteCard} updateStarCount={updateStarCount}/>
             ))}  
-            {isOpen  &&  <Modal recipeID={recipeID} closeModal={closeModal} /> }
+            {isOpen  &&  <Modal closeModal={closeModal} selectedRecipe={selectedRecipe} updateRecipe={updateRecipe}/> }
             {showPopup &&
                 (<div className="success-modal">          
-                    <span>Successfully deleted</span>
+                    <span>{notifyText}</span>
                 </div>
-            )}      
+            )}     
+             
         </div>
     )
 }
