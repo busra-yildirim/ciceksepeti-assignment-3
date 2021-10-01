@@ -88,8 +88,10 @@
             border: none;
             background: unset;
             font-weight: 500;
+            color: #a77950;
+            font-size: 20px;
             &:hover {
-                color: red;
+                font-weight: bold;
                
             }
         }
