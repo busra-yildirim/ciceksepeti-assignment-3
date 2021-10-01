@@ -15,7 +15,7 @@
 
     .success-modal {
         width: 200px;
-        position: absolute;
+        position: fixed;
         top: 70px;
         right: 0;
         background-color: #b9e6ba;
@@ -31,14 +31,22 @@
 }
 @media (max-width: 1000px) {
     .container  {
-        width: 600px;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .website-title {
+        padding: 20px 0;
+        letter-spacing: 5px;
+        justify-content: center;
+    }
+    .modal-content {   
+        padding: 0px 30px;
+        width: 300px;
     }
   }
-@media (max-width: 600px) {
-    .container  {
-        width: 500px;
-    }
-}
+
 @keyframes notify {
     0% {
       transform: translateX(100px) scale(1);
