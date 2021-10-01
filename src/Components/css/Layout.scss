@@ -1,16 +1,49 @@
 .container {
     width: 950px;
-    height: 90vh;
     margin: 0 auto;
     display: flex;
     flex-direction: row;    
     color:  #a77950;
     flex-wrap: wrap;
     border-bottom-width: 1px;
-    padding-top: 20px;
+    padding: 40px 0px;
     gap: 60px;
     
     &.title {
         border-bottom: 2px solid black;
+    }
+
+    .success-modal {
+        width: 200px;
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background-color: #b9e6ba;
+        display: flex;
+        justify-content: center;
+        border-radius: 5px;
+        padding: 20px;
+        margin-right: 50px;
+        color:black;
+        animation: notify 0.8s ease-in-out;;
+    }
+
+}
+@media (max-width: 1000px) {
+    .container  {
+        width: 600px;
+    }
+  }
+@media (max-width: 600px) {
+    .container  {
+        width: 500px;
+    }
+}
+@keyframes notify {
+    0% {
+      transform: translateX(100px) scale(1);
+    }
+    100% {
+      transform: translateY(0px) scale(1);
     }
 }
