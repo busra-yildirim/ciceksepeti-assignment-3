@@ -1,4 +1,4 @@
-import './css/Modal.scss';
+import '../css/Modal.scss';
 
 function Modal( closeModal) {
 

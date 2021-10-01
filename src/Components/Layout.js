@@ -1,7 +1,7 @@
 
 import Card from './Card';
-import { useEffect, useState } from 'react/cjs/react.development';
-import './css/Layout.scss';
+import { useEffect, useState } from 'react';
+import '../css/Layout.scss';
 import Modal from './Modal';
 
 function Layout() {
@@ -24,7 +24,6 @@ function Layout() {
     useEffect(() => {
         getRecipes();        
     }, []);
-
 
     // deleted card from card list
     const deleteCard = (id) => {

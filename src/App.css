@@ -11,7 +11,7 @@ body{
   border-bottom: 2px solid #a77950;
   color: #a77950;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   padding: 20px 100px;
   font-weight: 700;
   font-family: Brandon Grotesque,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji;
