@@ -1,7 +1,7 @@
 
 import './App.css';
-import Layout from './components/Layout';
 import React from 'react';
+import Layout from './Components/Layout';
 
 class App extends React.Component{
   // Main Layout
